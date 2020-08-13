@@ -4,8 +4,9 @@ import "./App.css";
 import Welcome from "./components/welcome/Welcome.js";
 import Clock from "./components/clock/Clock.js";
 import Contact from "./components/contact/Contact.js"
-import {Route} from "react-router-dom"
+import {Route, Switch} from "react-router-dom"
 import Navigation from "./components/navigation/Navigation.js"
+import NoMatch from 'react-router-nomatch'
 
 // function App() {
 //   return (
@@ -21,16 +22,22 @@ import Navigation from "./components/navigation/Navigation.js"
 class App extends React.Component {
   render() {
     return (
-      <div>
-        {/* define our routes */}
+      <div className = "App">
         <Navigation />
-        <Route
-          exact
-          path="/"
-          render={(props) => <Welcome {...props} name="eric" />}
-        />
-        <Route path="/clock" component={Clock} />
-        <Route path="/contact" component={Contact} />
+        <Switch>
+          <Route
+            exact
+            path = "/"
+            render = {(props) => <Welcome {...props} name = "Cherry" />}
+          />
+          <Route 
+            path = "/welcome/:name" 
+            render = {(props) => <Welcome {...props} name = {props.match.params.name}/> } 
+          />
+          <Route path = "/clock" component = {Clock} />
+          <Route path = "/contact" component = {Contact} />
+          <Route> <NoMatch> 404! Page Not Found! </NoMatch> </Route>
+        </Switch>
       </div>
     );
   }
