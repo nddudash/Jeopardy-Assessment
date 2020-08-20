@@ -6,7 +6,7 @@ import Clock from "./components/clock/Clock.js";
 import Contact from "./components/contact/Contact.js"
 import {Route, Switch} from "react-router-dom"
 import Navigation from "./components/navigation/Navigation.js"
-import NoMatch from 'react-router-nomatch'
+import FouroFour from "./components/fourofour/FouroFour.js"
 
 // function App() {
 //   return (
@@ -24,19 +24,33 @@ class App extends React.Component {
     return (
       <div className = "App">
         <Navigation />
+        
         <Switch>
           <Route
             exact
             path = "/"
             render = {(props) => <Welcome {...props} name = "Cherry" />}
           />
+
           <Route 
             path = "/welcome/:name" 
             render = {(props) => <Welcome {...props} name = {props.match.params.name}/> } 
           />
-          <Route path = "/clock" component = {Clock} />
-          <Route path = "/contact" component = {Contact} />
-          <Route> <NoMatch> 404! Page Not Found! </NoMatch> </Route>
+
+          <Route 
+            path = "/clock" 
+            component = {Clock}
+          />
+
+          <Route 
+            path = "/contact" 
+            component = {Contact} 
+          />
+
+          <Route>
+            <FouroFour />
+          </Route>
+
         </Switch>
       </div>
     );
