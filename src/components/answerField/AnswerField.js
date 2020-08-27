@@ -1,7 +1,6 @@
 import React from "react";
 import "../answerField/answerField.css";
 
-
 class AnswerField extends React.Component {
   constructor(props) {
     super(props);
@@ -39,9 +38,9 @@ class AnswerField extends React.Component {
       actualAnswer: this.props.actualAnswer,
       submitted: false,
       userAnswer: "",
-    })
+    });
 
-    this.props.getNewQuestion()
+    this.props.getNewQuestions();
   };
 
   render() {
@@ -62,7 +61,7 @@ class AnswerField extends React.Component {
             </h3>
             <h3>Your Answer: {this.state.userAnswer}</h3>
             <h3>Correct Answer: {this.props.actualAnswer}</h3>
-            <button onClick = {this.resetState}>Get Another Question!</button>
+            <button onClick={this.resetState}>Get Another Question!</button>
           </div>
         </div>
       );
