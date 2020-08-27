@@ -1,0 +1,7 @@
+.AnswerField label {
+    font-size: 1.25em;
+}
+
+.AnswerFieldSubmitted {
+    border: 1px solid black;
+}

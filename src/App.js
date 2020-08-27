@@ -7,17 +7,10 @@ import Contact from "./components/contact/Contact.js"
 import {Route, Switch} from "react-router-dom"
 import Navigation from "./components/navigation/Navigation.js"
 import FouroFour from "./components/fourofour/FouroFour.js"
+import Jeopardy from './components/jeopardy/Jeopardy.js'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       A E S T H E T I C
-//       <Welcome name="Baby" />
-//       <Clock />
-//       <Contact />
-//     </div>
-//   );
-// }
+import getTodo from "./service/todoService.js"
+getTodo(1)
 
 class App extends React.Component {
   render() {
@@ -47,10 +40,15 @@ class App extends React.Component {
             component = {Contact} 
           />
 
+          <Route
+            path = "/jeopardy"
+            component = {Jeopardy}
+          />
+      
           <Route>
             <FouroFour />
           </Route>
-
+          
         </Switch>
       </div>
     );
