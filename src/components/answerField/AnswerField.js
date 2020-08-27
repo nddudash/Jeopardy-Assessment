@@ -1,6 +1,6 @@
 import React from "react";
 import "../answerField/answerField.css";
-import JeopardyService from "../../service/jeopardyService.js";
+
 
 class AnswerField extends React.Component {
   constructor(props) {

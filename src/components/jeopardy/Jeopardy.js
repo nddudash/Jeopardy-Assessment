@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import our service
 import JeopardyService from "../../service/jeopardyService.js";
-import AnswerField from "../answerField/AnswerField.js"
+import JeopardyDisplay from "../jeopardyDisplay/jeopardyDisplay.js"
 
 class Jeopardy extends Component {
   //set our initial state and set up our service as this.client on this component
@@ -62,31 +62,46 @@ class Jeopardy extends Component {
     }
   //display the results on the screen
     render() {
-        let category = "Loading..."
-        let question = this.state.data.question
-        let value = this.state.data.value
-        let score = this.state.score
-        
-        
-        if (this.state.data.category && this.state.data.category.title) {
-            category = this.state.data.category.title
-        }
-
-        return (
+        return(
             <div>
-                <h3>Category: {category}</h3>
-                <h3>Question: {question}</h3>
-                <h3>Value: {value}</h3>
-                <AnswerField 
+                <JeopardyDisplay
+                    category = {this.state.data.category.title}
+                    question = {this.state.data.question}
+                    value = {this.state.data.value}
+                    score = {this.state.score}
                     actualAnswer = {this.state.data.answer}
                     getNewQuestion = {this.getNewQuestion}
                     answerIsCorrect = {this.answerIsCorrect}
                     answerIsIncorrect = {this.answerIsIncorrect}
                 />
-                <h3>Player's Score: {score}</h3>
             </div>
-        );
+        )
     }
 }
 
 export default Jeopardy;
+
+////Old Return Backup////
+// let category = "Loading..."
+// let question = this.state.data.question
+// let value = this.state.data.value
+// let score = this.state.score
+
+// if (this.state.data.category && this.state.data.category.title) {
+//     category = this.state.data.category.title
+// }
+
+// return (
+//     <div>
+//         <h3>Category: {category}</h3>
+//         <h3>Question: {question}</h3>
+//         <h3>Value: {value}</h3>
+//         <AnswerField
+//             actualAnswer = {this.state.data.answer}
+//             getNewQuestion = {this.getNewQuestion}
+//             answerIsCorrect = {this.answerIsCorrect}
+//             answerIsIncorrect = {this.answerIsIncorrect}
+//         />
+//         <h3>Player's Score: {score}</h3>
+//     </div>
+// );
